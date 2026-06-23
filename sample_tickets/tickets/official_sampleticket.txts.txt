@@ -1,1 +1,111 @@
+TICKET 1
+
+Summary of request: Member is asking why they haven't received Rove Miles after spending $84 at "The Pasta House" last Tuesday.
+Key Details:
+Booking type: Shopping / Dining Rewards
+Date: June 16, 2026 (Last Tuesday)
+Provider: The Pasta House
+Payment method: Customer used their everyday credit card.
+Crucial Check: Member confirmed they linked this card to their Rove account before purchasing. However, the member also mentioned they used a 15% off promo code from a third-party coupon site, and the purchase location still needs to be verified as U.S.-based and eligible.
+Actions taken: Reviewed the merchant eligibility and coupon policy. Confirmed that U.S. purchase location and offer eligibility must be verified, and that unapproved coupon or promotional code usage may reduce rewards, result in $0 rewards, or disqualify the transaction.
+Outcome/status: Pending (Awaiting receipt and eligibility verification).
+Next steps and timeline: Agent needs to reply asking the customer for the restaurant’s exact street address and a photo of the receipt so the purchase location, merchant eligibility, and promo code usage can be reviewed before escalating the missing Miles claim.
+
+TICKET 2
+Summary of request: Member is requesting a full refund to their original payment card because the airline canceled their flight.
+Key details: 
+Booking type: Flight
+Dates: June 19, 2026
+Providers: United Airlines
+Member insists on a direct refund back to their original credit card.
+Actions taken: Looked up the reservation in the internal travel portal dashboard. Verified with our airline ticketing partner that the flight was officially canceled by the carrier.
+Outcome/status: Resolved.
+Next steps and timeline: Refund of $412.50 has been successfully initiated in the customer’s account. Sent a confirmation email to the user. The funds will settle back onto their original payment card within 5 to 7 days.
+Supplier booking ID: ROVE-9921
+
+TICKET 3
+Summary of request: Member has shopped at Nike that promised them 5.2 X, but they only received 2.6 X. Customer is requesting appropriate compensation. 
+Key details: 
+Booking type: Retail/online
+Dates: June 8, 2026
+Providers: Nike
+Member insists on getting the remaining miles promised.
+Actions taken: “Compensation can be provided for hotel issues or flight booking issues.” (from SOP). Consult agent to  confirm this does not include retail stores like Nike.
+Outcome/status: Pending (waiting for response from agent)
+Next steps and timeline: After agent responds with confirmation/rejection, either tell customer “compensation only applies for hotels and flights, not retail stores” or “consult with agent for further communication”
+Supplier booking ID: ROVE-8316
+
+TIKCET 4
+Summary of request: Member has booked a hotel and during stay they have encountered a lack of hotel amenities, such as lack of adequate towels and outlets. Customer is requesting appropriate compensation. 
+Key details: 
+Booking type: Hotel
+Dates: June 10, 2026
+Providers: Hilton
+Member insists on getting amenities sorted out.
+Actions taken: “These issues are ultimately the responsibility of the hotel, and it’s on the hotel to provide compensation that we can then issue to the guests” (from SOP). Therefore, Rove cannot take any action and leaves it up to the hotel to sort out the issue.
+Outcome/status: Resolved.
+Next steps and timeline: Provide a recommendation to customer that they should call the hotel and get their issues sorted out with them.
+Supplier booking ID: ROVE-3210
+
+Ticket 5
+Summary of request: Member is asking why their Rove referral Miles have not posted after their friend signed up.
+Key details:
+Booking type: Referral / Account
+Dates: June 20, 2026
+Providers: Rove Referral Program
+Member says their friend used their referral link, but no bonus Miles have appeared in their account.
+Actions taken: Reviewed SOP policy. Confirmed that referral bonus Miles are not always awarded immediately after signup and may require the referred member to earn eligible Miles first.
+Outcome/status: Pending
+Next steps and timeline: Agent should ask the member for their referral link, the referred member’s name, and the phone number or email connected to the referred account so the referral can be investigated. 
+
+
+Ticket 6
+Summary of request: Member cannot log into their Rove account because they are not receiving the verification code.
+Key details:
+Booking type: Account / Login
+Dates: June 22, 2026
+Providers: Rove Account
+Member says they requested multiple codes but none arrived.
+Actions taken: Reviewed Rove policy (from SOP). Confirmed member should try logging out, logging back in, and requesting a new code.
+Outcome/status: Pending
+Next steps and timeline: Agent should guide the member through OTP troubleshooting steps and request their registered email address if the issue continues. 
+
+Ticket 7
+Summary of request: Member wants to cancel a refundable hotel reservation 
+Key details:
+Booking type: Hotel
+Dates: September 4–7, 2026
+Providers: Hilton Garden Inn
+Customer requested cancellation before the refund deadline.
+Actions taken: Reviewed cancellation policy and verified the reservation qualifies for a refund. Then submitted the cancellation request.
+Outcome/status: Processing
+Next steps and timeline: Advised the customer that funds may take 5–10 business days to appear and await results
+Supplier booking ID: ROVE-6482
+
+Ticket 8
+Summary of request: Member is asking when their shopping Miles from an online purchase will become available.
+Key details:
+Booking type: Shopping / Online Retail
+Dates: June 12, 2026
+Providers: Adidas
+Member sees the Miles as pending and wants to know why they are not usable yet.
+Actions taken: Reviewed shopping Miles timeline policy. Confirmed shopping Miles can remain pending while the merchant validates the purchase.
+Outcome/status: Resolved
+Next steps and timeline: Agent should explain that shopping Miles may begin pending within 24 hours, but final posting can take 30 to 100 days depending on merchant validation. 
+
+
+Ticket 9
+Summary of request: Member is asking why their hotel Miles have not posted yet after completing a refundable hotel stay.
+Key details:
+Booking type: Hotel / Miles Posting
+Dates: Stay completed June 14, 2026
+Providers: Hyatt Place Austin
+Member says they checked out over a week ago and expected the Miles immediately.
+Actions taken: Reviewed SOP  policy. Confirmed refundable hotel Miles usually post after the stay, and some loyalty-eligible hotel Miles may take 8 to 12 weeks after checkout.
+Outcome/status: Resolved
+Next steps and timeline: Agent should explain the expected posting timeline and confirm whether the booking was refundable or loyalty-eligible. 
+
+
+
+
 
