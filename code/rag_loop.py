@@ -103,7 +103,27 @@ def rag_loop(ticket):
         "answer": answer,
         "sources": [c['source'] for c in retrieved]
     }
+# Suggested Answer Helper
+def suggest_answer(ticket):
+    # Get the most relevant docs for the ticket
+    retrieved = retrieve_chunks(ticket, knowledge_base, top_n=3)
 
+    # If nothing matches, don't guess
+    if not retrieved:
+        return {
+            "answer": "I couldn't find this in Rove's documentation. Please escalate to a senior agent.",
+            "sources": []
+        }
+
+    # Build the prompt and generate a response
+    prompt = build_prompt(ticket, retrieved)
+    answer = call_ai(prompt)
+
+    # Return the answer and the sources that were used
+    return {
+        "answer": answer,
+        "sources": [chunk["source"] for chunk in retrieved]
+    }
 # --------------------------------------------------
 # RUN TESTS — end-to-end on sample tickets
 # --------------------------------------------------
