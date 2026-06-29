@@ -11,7 +11,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from dotenv import load_dotenv
 from openai import OpenAI
 from retrieval import retrieve_chunks
-from knowledge.knowledge_base import knowledge_base
+from knowledge.knowledge_base import rove_chunks
 
 # Load API key
 load_dotenv()
@@ -79,7 +79,7 @@ def rag_loop(ticket):
     print('='*60)
 
     # Retrieve relevant chunks
-    retrieved = retrieve_chunks(ticket, knowledge_base, top_n=3)
+    retrieved = retrieve_chunks(ticket, rove_chunks, top_n=3)
 
     # Show which sources were retrieved (for debugging/Week 4 interface)
     if retrieved:
@@ -106,7 +106,7 @@ def rag_loop(ticket):
 # Suggested Answer Helper
 def suggest_answer(ticket):
     # Get the most relevant docs for the ticket
-    retrieved = retrieve_chunks(ticket, knowledge_base, top_n=3)
+    retrieved = retrieve_chunks(ticket, rove_chunks, top_n=3)
 
     # If nothing matches, don't guess
     if not retrieved:
@@ -132,14 +132,10 @@ if __name__ == "__main__":
     print("Running sample tickets through the full pipeline...\n")
 
     test_tickets = [
-        # These should be answered from the knowledge base
-        "My miles didn't show up after my hotel booking 3 days ago. Booking ID is RV-48291.",
-        "I cancelled my booking yesterday, it was booked 2 days ago. Will I get a full refund?",
-        "How do I cancel my upcoming hotel reservation in the app?",
-        "I was charged twice for my booking on March 15th. Booking ID RV-55102.",
-
-        # This should NOT be found — co-pilot should admit the gap
-        "Can I transfer my miles to my friend's account as a gift?",
+        "Member used a 15% off promo code at The Pasta House and has not received Rove Miles.",
+        "Member is requesting a refund because United Airlines canceled their flight.",
+        "Member cannot log into their Rove account because they are not receiving the verification code.",
+        "Member is asking when Adidas shopping Miles will become available.",
     ]
 
     results = []

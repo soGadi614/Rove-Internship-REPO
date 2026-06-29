@@ -7,7 +7,7 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-from knowledge.knowledge_base import knowledge_base
+from knowledge.knowledge_base import rove_chunks
 
 # Words to ignore when matching — too common to be useful
 STOP_WORDS = {
@@ -30,7 +30,7 @@ def get_keywords(text):
             cleaned.append(word)
     return set(cleaned)
 
-def retrieve_chunks(ticket, kb=knowledge_base, top_n=3):
+def retrieve_chunks(ticket, kb=rove_chunks, top_n=3):
     """
     Find the most relevant chunks for a given ticket.
     Uses keyword matching — counts shared meaningful words.
