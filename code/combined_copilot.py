@@ -1,5 +1,8 @@
-# combined_copilot.py
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
+# Your existing imports continue below...
 from rag_loop import suggest_answer
 from sop_match import match_sop
 from Refund_Calculator import Refund_Calculator
