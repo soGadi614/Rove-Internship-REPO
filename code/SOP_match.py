@@ -4,6 +4,7 @@ import os
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
+import streamlit as st
 from retrieval import retrieve_chunks
 
 
@@ -176,16 +177,33 @@ def print_match(result):
     print("=" * 60)
 
 
-if __name__ == "__main__":
-    test_tickets = [
-        "Member used a 15% off promo code at The Pasta House and has not received Rove Miles.",
-        "Member is requesting a refund because United Airlines canceled their flight.",
-        "Member cannot log into their Rove account because they are not receiving the verification code.",
-        "Member is asking when Adidas shopping Miles will become available.",
-        "Member says their friend used their referral link but no bonus Miles have appeared.",
-        "Member has booked a hotel and during the stay encountered a lack of towels and outlets."
-    ]
+# ---------------------------------------------------------------------------
+# Streamlit UI
+# ---------------------------------------------------------------------------
 
-    for ticket in test_tickets:
-        result = match_sop(ticket)
-        print_match(result)
+st.title("SOP Match")
+st.write("Paste a support ticket below to find the matching SOP category and canned response.")
+
+ticket_input = st.text_area("Ticket text", height=150)
+
+if st.button("Match SOP"):
+    if ticket_input.strip():
+        result = match_sop(ticket_input)
+
+        st.subheader("Result")
+        st.write(f"**Category:** {result['category']}")
+        st.write(f"**Confidence:** {result['confidence']}")
+        st.write(f"**Needs agent review:** {result['needs_agent_review']}")
+        st.write(f"**Reason:** {result['reason']}")
+
+        st.subheader("Canned response")
+        st.write(result["canned_response"])
+
+        st.subheader("Matched sources")
+        if result["matched_sources"]:
+            for source in result["matched_sources"]:
+                st.write(f"- {source}")
+        else:
+            st.write("No matching sources found.")
+    else:
+        st.warning("Please enter a ticket first.")
