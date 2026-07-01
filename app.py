@@ -1,3 +1,9 @@
+import sys
+import os
+
+# Force Python to find modules inside the code folder
+sys.path.append(os.path.abspath("code"))
+
 import streamlit as st
 
 # Define your individual tools as sub-pages
