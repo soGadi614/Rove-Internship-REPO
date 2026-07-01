@@ -1,12 +1,15 @@
+
 """
 Rove Refund Calculator
 Based on: Rove Member Support SOP - Refunds & Compensation FAQ
 Uses OpenAI to extract ticket details; Python handles all math.
 """
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 import json
 import math
-import os
 from dotenv import load_dotenv
 from openai import OpenAI
 
