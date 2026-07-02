@@ -303,4 +303,36 @@ def refund_calculator(ticket_text: str) -> dict:
     result["extracted_details"] = details
     return result
 
+# ---------------------------------------------------------------------------
+# Streamlit UI
+# ---------------------------------------------------------------------------
+import streamlit as st
+
+st.title("Refund Calculator")
+st.write("Paste a support ticket below to calculate the refund per SOP rules.")
+
+ticket_input = st.text_area("Ticket text", height=150)
+
+if st.button("Calculate Refund"):
+    if ticket_input.strip():
+        with st.spinner("Analyzing ticket..."):
+            result = refund_calculator(ticket_input)
+
+        if result["flagged"]:
+            st.warning(f"Flagged: {result['flag_reason']}")
+
+        if result["refund_amount_usd"] is not None:
+            st.success(f"Final refund amount: ${result['refund_amount_usd']:.2f}")
+
+        if result["miles_refunded"]:
+            st.write(f"Miles to refund: {result['miles_refunded']:,}")
+
+        st.subheader("Full agent summary")
+        st.text(result["formatted_output"])
+
+        with st.expander("Raw extracted details"):
+            st.json(result["extracted_details"])
+    else:
+        st.warning("Please enter a ticket first.")
+
 
