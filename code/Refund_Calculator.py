@@ -50,6 +50,20 @@ Return ONLY a valid JSON object with these exact fields (use null if not mention
 Ticket:
 {ticket_text}
 
+Important note on extracting dollar amounts:
+- Extract any dollar figure associated with the booking or refund, no matter
+  what word precedes it (e.g. "cost", "price", "amount", "charge", "paid",
+  "total", "refund amount"). All of these should map to
+  original_refund_amount_usd unless the ticket clearly distinguishes multiple
+  different dollar figures for different purposes.
+
+Important distinction for refund_type:
+- Use "hotel_complaint" ONLY when the member is complaining about conditions during
+  an active or completed stay (e.g. missing amenities, bad service, room issues).
+- Use "standard" when the member wants to cancel a reservation (refundable or not)
+  BEFORE or without describing any problem during a stay. Canceling a booking is
+  not a complaint.
+
 Return ONLY the JSON. No explanation, no markdown, no extra text."""
 
     response = client.chat.completions.create(
