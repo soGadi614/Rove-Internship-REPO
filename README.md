@@ -1,46 +1,30 @@
-# Rove Support Co-Pilot
+# Rove Support Co-pilot
 
-This project is a prototype AI co-pilot for Rove customer support agents. It helps an agent review a customer ticket by finding relevant SOP information, drafting a grounded suggested answer, matching the ticket to the right SOP category, and calculating refunds when relevant.
+A Streamlit tool that helps Rove agents handle tickets faster. Paste in a customer ticket and it gives you back a suggested reply (editable), the matched SOP, and a refund calculation if one applies — plus the source doc behind every suggestion so you can double check it before sending anything.
 
-## What The Co-Pilot Does
+## Running it
 
-For a support ticket, the co-pilot returns:
+pip install -r requirements.txt
 
-- A suggested answer grounded in Rove documentation
-- The sources used for the answer
-- The matched SOP category
-- A canned response the agent can personalize
-- A confidence flag for the SOP match
-- A refund calculation if the ticket involves refunds or cancellations
+Add a .env file in the repo root with:
+OPENAI_API_KEY=your-key-here
 
-The tool is meant to support a human agent, not replace one.
+Then:
+python3 -m streamlit run app.py
 
-## Files
+Open the forwarded URL from the Ports tab. Three pages in the sidebar:
+- Combined Copilot — the main thing, runs all three helpers together
+- Refund Calculator — just the refund math
+- SOP Match — just SOP matching, no API key needed for this one
 
-- `knowledge/knowledge_base.py`  
-  Holds the sourced Rove SOP chunks as `rove_chunks`.
+## How well it works
 
-- `retrieval.py`  
-  Finds the most relevant SOP chunks for a ticket using keyword matching.
+Tested against 9 sample tickets (shopping/dining, flight refunds, retail, hotel complaints, referrals, login, cancellations, Miles timing).
 
-- `rag_loop.py`  
-  Uses retrieval plus an AI model to draft a grounded suggested answer.
+- SOP matching: 9/9 correct. Even got the tricky one right — flagged a Nike retail question as low-confidence/needs review, same as what the actual agent had to do.
+- Source relevance: started rough, improved. Early on, sources were hit or miss (sometimes 0/3 relevant) because long knowledge base chunks stuffed with common words like "member" and "miles" were outscoring the actually-relevant ones. Fixed by reweighting keyword matches so rare/specific words (like "Wildfire" or "OTP") count more than generic ones.
+- Refund calc: found and fixed two real bugs. One ticket about canceling a refundable hotel booking was getting misread as a complaint instead of a normal cancellation — wrong refund path entirely. Fixed by clarifying the prompt. Also found that dollar amounts only got extracted correctly if the ticket said "refund amount" specifically — "booking cost" returned $0. Fixed by broadening what phrasing counts.
 
-- `sop_match.py`  
-  Classifies the ticket type and prepares a matching canned SOP response.
+## What's still weak
 
-- `refund_calculator.py`  
-  Extracts refund details with AI, then does refund math in Python.
-
-- `combined_copilot.py`  
-  Runs the suggested answer helper, SOP matcher, and refund calculator together.
-
-- `api_test.py`  
-  Tests whether the OpenAI API key is working.
-
-## Setup
-
-Install required packages:
-
-```bash
-pip install openai python-dotenv
+The dollar-amount extraction is only as good as how closely the ticket phrasing matches what we've tested — agents should still eyeball the number against the actual booking before processing anything. Source retrieval is keyword-based, not true semantic search, so a heavily paraphrased ticket might still miss the best doc.
