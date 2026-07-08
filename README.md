@@ -2,20 +2,20 @@
 
 A Streamlit tool that helps Rove agents handle tickets faster. Paste in a customer ticket and it gives you back a suggested reply (editable), the matched SOP, and a refund calculation if one applies — plus the source doc behind every suggestion so you can double check it before sending anything.
 
-## Running it
-
+## HOW TO RUN THE COPILOT - SETUP
+1. Click on the green "Code" dropdown
+2. Add a new codespace & click on it
+3. Run these commands in the Codespace terminal:
 pip install -r requirements.txt
-
-Add a .env file in the repo root with:
+#Add a .env file in the repo root with:
 OPENAI_API_KEY=your-key-here
-
-Then:
+#Then:
 python3 -m streamlit run app.py
-
+-----------------------------------
 Open the forwarded URL from the Ports tab. Three pages in the sidebar:
 - Combined Copilot — the main thing, runs all three helpers together
 - Refund Calculator — just the refund math
-- SOP Match — just SOP matching, no API key needed for this one
+- SOP Match — SOP matching
 
 ## How well it works
 
