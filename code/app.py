@@ -3,7 +3,7 @@ import streamlit as st
 # Define your individual tools as sub-pages
 copilot_page = st.Page("code/combined_copilot.py", title="Combined Copilot", icon=":material/smart_toy:")
 refund_page = st.Page("code/Refund_Calculator.py", title="Refund Calculator", icon=":material/calculate:")
-sop_page = st.Page("code/SOP_match.py", title="SOP Match", icon=":material/assignment:")
+sop_page = st.Page("code/sop_match.py", title="SOP Match", icon=":material/assignment:")
 
 # Bundle them into a sidebar navigation menu
 pg = st.navigation([copilot_page, refund_page, sop_page])
