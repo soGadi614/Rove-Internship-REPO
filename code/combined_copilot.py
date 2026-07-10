@@ -5,7 +5,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from rag_loop import suggest_answer
 from sop_match import match_sop
-from Refund_Calculator import Refund_Calculator
+from Refund_Calculator import refund_calculator
 
 REFUND_KEYWORDS = [
     "refund", "cancel", "canceled", "cancelled", "cancellation",
@@ -37,7 +37,7 @@ def run_copilot(ticket):
 
     if needs_refund_calculation(ticket):
         try:
-            refund = Refund_Calculator(ticket)
+            refund = refund_calculator(ticket)
         except Exception as error:
             refund = {
                 "flagged": True,
