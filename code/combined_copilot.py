@@ -1,5 +1,6 @@
 import os
 import sys
+import streamlit as st
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
@@ -104,14 +105,30 @@ def print_copilot_result(result):
     print("=" * 70)
 
 
-if __name__ == "__main__":
-    test_tickets = [
-        "Member used a 15% off promo code at The Pasta House and has not received Rove Miles.",
-        "Member is requesting a refund because United Airlines canceled their flight.",
-        "Member cannot log into their Rove account because they are not receiving the verification code.",
-        "Member is asking when Adidas shopping Miles will become available.",
-    ]
+st.title("Rove Combined Co-Pilot")
 
-    for ticket in test_tickets:
+ticket = st.text_area(
+    "Paste customer ticket:",
+    height=200,
+    key="copilot_ticket"
+)
+
+if st.button("Analyze", key="copilot_button"):
+    if ticket.strip():
         result = run_copilot(ticket)
-        print_copilot_result(result)
+
+        st.subheader("Suggested Answer")
+        st.write(result["suggested_answer"])
+
+        st.subheader("SOP Match")
+        st.write(f"Category: {result['sop_category']}")
+        st.write(f"Confidence: {result['sop_confidence']}")
+        st.write(result["sop_reason"])
+
+        st.subheader("Refund Result")
+        st.write(
+            result["refund_result"].get(
+                "formatted_output",
+                result["refund_result"]
+            )
+        )
